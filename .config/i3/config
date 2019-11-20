@@ -107,9 +107,10 @@ bindsym $mod+a focus parent
 # variables
 set $workspace1 "1: Firefox "
 set $workspace2 "2: Terminal "
-set $workspace3 "3: VNC Viewer"
-set $workspace4 "4: Nautilus"
-set $workspace5 "5: Evince-pdf-reader"
+set $workspace3 "3: Pdf-reader"
+set $workspace4 "4: VNC Viewer"
+set $workspace5 "5: Skype"
+set $workspace9 "9: Nautilus"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -132,7 +133,7 @@ bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
@@ -196,14 +197,16 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # launching firefox
-exec firefox
+
 
 # wallpaper
 exec_always feh --bg-scale /home/luca/Pictures/20170802_173020.jpg
-assign [class="Firefox"] $workspace1
-assign [class="realvnc-vncviewer"] $workspace3
-assign [class="Nautilus"] $workspace4
-assign [class="Evince"] $workspace5
+assign [class="Firefox"]            $workspace1
+assign [class="Gnome-terminal"]     $workspace2
+assign [class="Evince"]             $workspace3
+assign [class="realvnc-vncviewer"]  $workspace4
+assign [class="Skype"]              $workspace5
+assign [class="Nautilus"]           $workspace9
 
 # autostart redshift
 #https://www.matthiggins.dev/install-redshift-with-i3/
@@ -211,8 +214,11 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
 # autostart Dropbox
 exec --no-startup-id dropbox start
+exec --no-startup-id firefox
+exec --no-startup-id gnome-terminal
 exec --no-startup-id evince
-exec --no-startup-id nautilus
+#exec --no-startup-id nautilus
+exec --no-startup-id skype
 
 # settings for touchpad - same as in GNOME
 # see https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
