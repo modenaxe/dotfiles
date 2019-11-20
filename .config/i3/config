@@ -121,7 +121,7 @@ bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
@@ -218,7 +218,7 @@ exec --no-startup-id firefox
 exec --no-startup-id gnome-terminal
 exec --no-startup-id evince
 #exec --no-startup-id nautilus
-exec --no-startup-id skype
+#exec --no-startup-id skype
 
 # settings for touchpad - same as in GNOME
 # see https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
