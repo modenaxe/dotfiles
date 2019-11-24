@@ -47,9 +47,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # alternative rofi
-set $bg-color   #2f343f
-set $text-color #f3f4f5
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"-hlfg "#9575cd" -font "System San Francisco Display 18"
+set $bgcolor   #2f343f
+set $textcolor #f3f4f5
+# bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 600 -opacity "85" -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$textcolor" -hlbg "$bgcolor"-hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # lock with i3lock-fancy
 bindsym $mod+Shift+x exec i3lock-fancy
@@ -107,10 +107,14 @@ bindsym $mod+a focus parent
 # variables
 set $workspace1 "1: Firefox "
 set $workspace2 "2: Terminal "
-set $workspace3 "3: Pdf-reader"
-set $workspace4 "4: VNC Viewer"
-set $workspace5 "5: Skype"
-set $workspace9 "9: Nautilus"
+set $workspace3 "3: Pdf-reader "
+set $workspace4 "4: VNC Viewer "
+set $workspace5 "5: Office "
+set $workspace6 "6: Skype "
+set $workspace7
+set $workspace8
+set $workspace9 "9: Nautilus "
+set $workspace10
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -118,11 +122,11 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -130,11 +134,11 @@ bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -186,27 +190,36 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-# bindsym XF86TouchpadToggle exec ./toggletouchpad.sh # toggle touchpad
-bindsym Print exec screenshot
+# screenshot (as in Gnome)
+bindsym Print exec  gnome-screenshot
+
+# I want shutter to open floating
+
+# execut shutter
+bindsym $mod+Print exec  shutter
+for_window [class="Shutter"] floating enable
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay  exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# launching firefox
-
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 
 # wallpaper
 exec_always feh --bg-scale /home/luca/Pictures/20170802_173020.jpg
+
+# linking programs with workspaces
 assign [class="Firefox"]            $workspace1
 assign [class="Gnome-terminal"]     $workspace2
 assign [class="Evince"]             $workspace3
+assign [class="Code"]               $workspace3
 assign [class="realvnc-vncviewer"]  $workspace4
-assign [class="Skype"]              $workspace5
+assign [class="Wps"]                $workspace5
+assign [class="Wpp"]                $workspace5
+assign [class="Et"]                 $workspace5
+assign [class="Skype"]              $workspace6
 assign [class="Nautilus"]           $workspace9
+
 
 # autostart redshift
 #https://www.matthiggins.dev/install-redshift-with-i3/
@@ -217,8 +230,10 @@ exec --no-startup-id dropbox start
 exec --no-startup-id firefox
 exec --no-startup-id gnome-terminal
 exec --no-startup-id evince
+exec --no-startup-id code
 #exec --no-startup-id nautilus
 #exec --no-startup-id skype
+exec compton
 
 # settings for touchpad - same as in GNOME
 # see https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
