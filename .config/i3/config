@@ -194,10 +194,12 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym Print exec  gnome-screenshot
 
 # I want shutter to open floating
-
-# execut shutter
 bindsym $mod+Print exec  shutter
 for_window [class="Shutter"] floating enable
+
+# poweroff
+bindsym $mod+shift+alt+Delete exec poweroff
+bindsym $mod+shift+Delete exec systemctl suspend & i3lock-fancy
 
 # Media player controls
 bindsym XF86AudioPlay  exec playerctl play
