@@ -111,10 +111,10 @@ set $workspace3 "3: Pdf-reader "
 set $workspace4 "4: VNC Viewer "
 set $workspace5 "5: Office "
 set $workspace6 "6: Skype "
-set $workspace7
-set $workspace8
+set $workspace7 "7"
+set $workspace8 "8"
 set $workspace9 "9: Nautilus "
-set $workspace10
+set $workspace10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -194,11 +194,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym Print exec  gnome-screenshot
 
 # I want shutter to open floating
-bindsym $mod+Print exec  shutter
+bindsym $mod+Insert exec  shutter
 for_window [class="Shutter"] floating enable
 
 # poweroff
-bindsym $mod+shift+alt+Delete exec poweroff
+bindsym $mod+Delete exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to shut down the system? You might lose unsaved data.' -b 'Yes, exit i3' 'poweroff'"
 bindsym $mod+shift+Delete exec systemctl suspend & i3lock-fancy
 
 # Media player controls
@@ -223,10 +223,10 @@ assign [class="Skype"]              $workspace6
 assign [class="Nautilus"]           $workspace9
 
 
-# autostart redshift
-#https://www.matthiggins.dev/install-redshift-with-i3/
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+# autostart redshift (allowed to use geoclu2
+# see: https://wiki.archlinux.org/index.php/redshift#Automatic_location_based_on_GeoClue2
 exec --no-startup-id redshift-gtk
+
 # autostart Dropbox
 exec --no-startup-id dropbox start
 exec --no-startup-id firefox
