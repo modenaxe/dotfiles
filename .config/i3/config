@@ -220,8 +220,8 @@ assign [class="Wps"]                $workspace5
 assign [class="Wpp"]                $workspace5
 assign [class="Et"]                 $workspace5
 assign [class="Skype"]              $workspace6
+assign [class="Zotero"]  	        $workspace7
 assign [class="Nautilus"]           $workspace9
-
 
 # autostart redshift (allowed to use geoclu2
 # see: https://wiki.archlinux.org/index.php/redshift#Automatic_location_based_on_GeoClue2
@@ -233,8 +233,9 @@ exec --no-startup-id firefox
 exec --no-startup-id gnome-terminal
 exec --no-startup-id evince
 exec --no-startup-id code
-#exec --no-startup-id nautilus
-#exec --no-startup-id skype
+# exec --no-startup-id zotero 
+# exec --no-startup-id skype
+# exec --no-startup-id nautilus
 exec compton
 
 # settings for touchpad - same as in GNOME
