@@ -38,7 +38,18 @@ $percent = $2;
 $full_text = "$percent%";
 
 if ($status eq 'Discharging') {
-	$full_text .= ' DIS';
+	#$full_text .= ' DIS';
+    # adding symbols
+	if ($percent <= 25) {
+		$full_text .= ' ';
+	} elsif ($percent < 50) {
+		$full_text .= ' ';
+	} elsif ($percent < 75) {
+		$full_text .= ' ';
+	} elsif ($percent > 75) {
+		$full_text .= '  ';
+	}
+
 } elsif ($status eq 'Charging') {
 	$full_text .= ' CHR';
 }
