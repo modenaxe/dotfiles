@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # originally was:
 # font pango:monospace 8
-font pango:System San Francisco Display 10
+font pango:System San Francisco Display 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -176,9 +176,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        
         #status_command i3status
+        #position top        
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        # position top
+        
 }
 
 # Pulse Audio controls
