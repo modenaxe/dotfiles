@@ -106,7 +106,7 @@ bindsym $mod+a focus parent
 
 # variables
 set $workspace1 "1: Firefox "
-set $workspace2 "2: Terminal "
+set $workspace2 "2: Workspace "
 set $workspace3 "3: Pdf-reader "
 set $workspace4 "4: VNC Viewer "
 set $workspace5 "5: Office "
@@ -214,7 +214,7 @@ exec_always feh --bg-scale /home/luca/Pictures/20170802_173020.jpg
 
 # linking programs with workspaces
 assign [class="Firefox"]            $workspace1
-assign [class="Gnome-terminal"]     $workspace2
+#assign [class="Gnome-terminal"]     $workspace2
 assign [class="Evince"]             $workspace3
 assign [class="Code"]               $workspace3
 assign [class="realvnc-vncviewer"]  $workspace4
@@ -228,6 +228,7 @@ assign [class="Nautilus"]           $workspace9
 # autostart redshift (allowed to use geoclu2
 # see: https://wiki.archlinux.org/index.php/redshift#Automatic_location_based_on_GeoClue2
 exec --no-startup-id redshift-gtk
+#exec --no-startup-id geoclue
 
 # autostart Dropbox
 exec --no-startup-id dropbox start
