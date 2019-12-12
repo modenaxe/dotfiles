@@ -61,13 +61,24 @@ if has('syntax') && has('eval')
 endif
 
 " to add molokai colours -- I am not sure if the plugin already does this
-let g:molokai_original = 1
+"let g:molokai_original = 1
+
+" NERDTreeToggle
+map <C-n> :NERDTreeToggle<CR>
+
+" solarized plugin
+syntax enable
+set background=dark
+"let g:solarized_termcolors=256
+colorscheme solarized
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tomasr/molokai'
-
+"Plug 'tomasr/molokai'
+Plug 'micha/vim-colors-solarized'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'vim-airline/vim-airline'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
