@@ -178,8 +178,13 @@ bindsym $mod+r mode "resize"
 bar {
         #font pango:DejaVu Sans Mono, Awesome 8
         #status_command i3status
+## POWERLINE
+        #status_command python /usr/share/powerline/bindings/i3/powerline-i3.py
+        #font pango:PowerlineFont 12
+
         #position top        
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
         
 }
 
@@ -217,13 +222,15 @@ assign [class="Firefox"]            $workspace1
 #assign [class="Gnome-terminal"]     $workspace2
 assign [class="Evince"]             $workspace3
 assign [class="Code"]               $workspace3
+assign [class="Nautilus"]           $workspace3
 assign [class="realvnc-vncviewer"]  $workspace4
-assign [class="Wps"]                $workspace5
-assign [class="Wpp"]                $workspace5
-assign [class="Et"]                 $workspace5
-assign [class="Skype"]              $workspace6
-assign [class="Zotero"]  	        $workspace7
-assign [class="Nautilus"]           $workspace9
+assign [class="Wps"]                $workspace2
+assign [class="Wpp"]                $workspace2
+assign [class="Et"]                 $workspace2
+assign [class="Zotero"]  	        $workspace6
+assign [class="Skype"]              $workspace7
+
+
 
 # autostart redshift (allowed to use geoclu2
 # see: https://wiki.archlinux.org/index.php/redshift#Automatic_location_based_on_GeoClue2
@@ -233,9 +240,10 @@ exec --no-startup-id redshift-gtk
 # autostart Dropbox
 exec --no-startup-id dropbox start
 exec --no-startup-id firefox
-exec --no-startup-id gnome-terminal
+exec --no-startup-id nm-applet
 exec --no-startup-id evince
-exec --no-startup-id code
+#exec --no-startup-id gnome-terminal
+#exec --no-startup-id code
 # exec --no-startup-id zotero 
 # exec --no-startup-id skype
 # exec --no-startup-id nautilus
