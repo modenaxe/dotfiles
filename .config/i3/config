@@ -57,7 +57,7 @@ bindsym $mod+Shift+x exec i3lock-fancy
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -206,7 +206,7 @@ for_window [class="Shutter"] floating enable
 
 # poweroff
 bindsym $mod+Delete exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you really want to shut down the system? You might lose unsaved data.' -b 'Yes, exit i3' 'poweroff'"
-bindsym $mod+shift+Delete exec systemctl suspend & i3lock-fancy
+bindsym $mod+l exec systemctl suspend & i3lock-fancy
 
 # Media player controls
 bindsym XF86AudioPlay  exec playerctl play
@@ -219,7 +219,7 @@ exec_always feh --bg-scale /home/luca/Pictures/20170802_173020.jpg
 
 # linking programs with workspaces
 assign [class="Firefox"]            $workspace1
-#assign [class="Gnome-terminal"]     $workspace2
+assign [class="Gnome-terminal"]     $workspace2
 assign [class="Evince"]             $workspace3
 assign [class="Code"]               $workspace3
 assign [class="Nautilus"]           $workspace3
@@ -227,7 +227,7 @@ assign [class="realvnc-vncviewer"]  $workspace4
 assign [class="Wps"]                $workspace2
 assign [class="Wpp"]                $workspace2
 assign [class="Et"]                 $workspace2
-assign [class="Zotero"]  	        $workspace6
+assign [class="Zotero"]             $workspace6
 assign [class="Skype"]              $workspace7
 
 
@@ -242,11 +242,11 @@ exec --no-startup-id dropbox start
 exec --no-startup-id firefox
 exec --no-startup-id nm-applet
 exec --no-startup-id evince
-#exec --no-startup-id gnome-terminal
+exec --no-startup-id gnome-terminal
 #exec --no-startup-id code
 # exec --no-startup-id zotero 
 # exec --no-startup-id skype
-# exec --no-startup-id nautilus
+exec --no-startup-id nautilus
 # exec compton
 
 # settings for touchpad - same as in GNOME
